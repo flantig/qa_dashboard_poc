@@ -8,16 +8,18 @@ export class Service {
         this.endpoint = endpoint
     }
 
-    async GET<T>(params?: QueryParams): Promise<T> {
-        return await axios.get(this.endpoint + ((params) ? params.toString() : ""), {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            }
-        });
+    /**
+     * Allows us to define the object structure of the json file, refer to ../Middleware/index.ts to see the current
+     * apis we're allowing through the middleware.
+     *
+     * @param request
+     */
+    async GET<T>(params: string): Promise<T> {
+        const response = await fetch(this.endpoint + params);
+        const body = await response.json();
+        console.log("returning the body")
+        console.log(body)
+        return body;
     }
 
-    // async POST(params?: QueryParams): Promise<any> {
-    //     const response = await fetch(this.endpoint!, {method: 'POST', body: ((params) ? params.toJson() : "")});
-    //     return await response.json();
-    // }
 }

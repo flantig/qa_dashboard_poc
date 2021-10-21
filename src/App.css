@@ -29,6 +29,14 @@
   color: #61dafb;
 }
 
+.list-item {
+  background: goldenrod;
+  padding: 10%;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 5px 5px 5px azure;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
