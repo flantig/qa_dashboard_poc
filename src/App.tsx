@@ -10,7 +10,8 @@ const listObj = [
 ];
 
 async function fetchDuck(){
-    const serve = new Service("http://localhost:5000")
+    //const serve = new Service("http://localhost:5000")
+    const serve = new Service("https://random-d.uk/api/v2/random")
     const response = await serve.GET<Duckie>("/duck")
     return response;
 }
@@ -28,6 +29,11 @@ async function fetchDuck(){
 function App() {
     let [ducks, setDucks] = React.useState("filler");
     let [loaded, setLoaded] = React.useState(false);
+    let [counter, setCounter] = React.useState(0);
+
+    function buttonClick(){
+        setCounter(counter + 1);
+    }
 
     useEffect(() => {
         fetchDuck().then(data =>{
@@ -36,7 +42,7 @@ function App() {
             console.log(ducks)
         })
         setLoaded(true)
-    }, []);
+    }, [counter]);
 
     return (
         <div className="App">
@@ -47,6 +53,8 @@ function App() {
                 <List items={listObj} renderer={(x) => <div className={"list-item"}>{x.name}</div>}/>
 
                 {loaded ? <img  src={ducks} alt={"Nothing here doc"}/> : <p>"Loading..."</p>}
+
+                <button onClick={buttonClick}>Hello</button>
 
             </header>
         </div>
