@@ -31,10 +31,17 @@ function App() {
     let [loaded, setLoaded] = React.useState(false);
     let [counter, setCounter] = React.useState(0);
 
+    /**
+     *Increments the counter by one.
+     */
     function buttonClick(){
         setCounter(counter + 1);
     }
 
+    /**
+     * Will refresh the duck everytime the counter variable is changed. We use the buttonClick() to increment the
+     * counter which should cause it to refresh the state.
+     */
     useEffect(() => {
         fetchDuck().then(data =>{
             setDucks(data.url)
