@@ -1,6 +1,6 @@
 import {Service} from "../Classes/Service";
 
-export class DuckService extends Service{
+export class DogService extends Service{
     constructor(endpoint: string) {
         super(endpoint);
     }

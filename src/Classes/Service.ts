@@ -1,5 +1,4 @@
 import {QueryParams} from "./QueryParams";
-import axios from "axios";
 
 export class Service {
     endpoint: string;
@@ -9,11 +8,9 @@ export class Service {
     }
 
     async GET<T>(params?: QueryParams): Promise<T> {
-        return await axios.get(this.endpoint + ((params) ? params.toString() : ""), {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            }
-        });
+        return await fetch(this.endpoint + ((params) ? params.toString() : ""))
+            .then(response => response.json() as Promise<T>)
+            .then(json => json)
     }
 
     // async POST(params?: QueryParams): Promise<any> {

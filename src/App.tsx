@@ -1,29 +1,38 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import {List} from "./Components/Test";
-import {DuckService} from "./Services/Duck.Service";
+import {DogService} from "./Services/Dog.Service";
+import {Dog} from "./Types/Dog";
 
-const duckService: DuckService = new DuckService("https://random-d.uk/api/v2/random");
+const dogService: DogService = new DogService("https://random.dog/woof.json");
 
 function App() {
-    let [ducks, setDucks] = React.useState({});
+    let [dogs, setdogs] = React.useState<Dog>({fileSize: "", url: ""});
     useEffect(() => {
-        setDucks(duckService.GET())
-        console.log(ducks)
+        getDog()
     }, []);
-    //ToDo: Finish implementing a network call, and render it's results.
+
+    const getDog = () => {
+        dogService.GET<Dog>().then(response => setdogs(response))
+        console.log(dogs)
+    }
 
     return (
         <div className="App">
             <header className="App-header">
-                <img src="https://i.pinimg.com/originals/36/b1/6c/36b16cc68bbbca07f1c37183112de693.gif"
-                     className="App-logo" alt="logo"/>
+                {
+                    dogs.url !== ""
+                    ? <img src={dogs.url} height={"250px"} width={"250px"} className="App-logo" alt="logo"/>
+                    : <img src="https://i.pinimg.com/originals/36/b1/6c/36b16cc68bbbca07f1c37183112de693.gif" className="App-logo" alt="logo"/>
+                }
 
-                <List items={[
-                    {key: "1", name: "SASelenium"},
-                    {key: "2", name: "QA-Api-Testing"}
-                ]} renderer={(x) => <div>{x.name}</div>}/>
+                {/*<List items={[*/}
+                {/*    {key: "1", name: "SASelenium"},*/}
+                {/*    {key: "2", name: "QA-Api-Testing"}*/}
+                {/*]} renderer={(x) => <div>{x.name}</div>}/>*/}
 
+                <button onClick={() => {getDog()}}>
+                    Click
+                </button>
             </header>
         </div>
     );
