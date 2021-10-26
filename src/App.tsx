@@ -1,19 +1,28 @@
 import React, {useEffect} from 'react';
-import './App.css';
-import {DogService} from "./Services/Dog.Service";
-import {Dog} from "./Models/Dog";
-import Doggo from "./Components/Pages/Doggo"
-
+import "./Styles/App.css"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import Navbar from "./Components/Routing/Navbar";
+import Routing from "./Components/Routing/Routing";
 
 
 function App() {
 
 
     return (
+        <div className={"App-header"}>
+            <Router>
+                <div id="header">
+                    <Navbar/>
 
+                    <Routing/>
 
-        <div className="App">
-            <Doggo/>
+                </div>
+            </Router>
         </div>
     );
 }

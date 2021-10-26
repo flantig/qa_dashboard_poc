@@ -1,6 +1,8 @@
 import {DogService} from "../../Services/Dog.Service";
 import React, {useEffect} from "react";
+import "../../Styles/Pages/Doggo.css"
 import {Dog} from "../../Models/Dog";
+import {Button} from "evergreen-ui";
 
 const dogService: DogService = new DogService("https://random.dog/woof.json");
 
@@ -16,8 +18,8 @@ function Doggo() {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
+        <div >
+            <header>
                 {
                     dogs.url !== ""
                         ? <img src={dogs.url} height={"250px"} width={"250px"} className="App-logo" alt="logo"/>
@@ -29,9 +31,8 @@ function Doggo() {
                 {/*    {key: "2", name: "QA-Api-Testing"}*/}
                 {/*]} renderer={(x) => <div>{x.name}</div>}/>*/}
 
-                <button onClick={() => {getDog()}}>
-                    Click
-                </button>
+                <Button onClick={getDog} className="item">Click</Button>
+
             </header>
         </div>
     );
