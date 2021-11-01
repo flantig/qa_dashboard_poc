@@ -1,11 +1,18 @@
 import React, {useEffect} from "react";
-import {Button} from "evergreen-ui";
+import {Button, Pane, Switch, ThemeProvider} from "evergreen-ui";
+import {ThemeProviderParameter} from "../../Styles/Pages/Test1EG";
 
-function Test1(){
+function Test1() {
 
-    return(
+
+    return (
         <div>
-            <Button>Click me!</Button>
+            <Switch/>
+            <ThemeProvider value={ThemeProviderParameter}>
+                <Pane appearance="dark">Hi</Pane>
+                <Button appearance="dark"> hello </Button>
+            </ThemeProvider>
+
         </div>
     )
 

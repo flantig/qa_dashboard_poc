@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import React from "react";
-import "../../Styles/Routing/Navbar.css"
-import {ThemeProviderParameter} from "../../Styles/Routing/NavbarEG";
+import "../../Styles/Layout/Navbar.css"
+import {ThemeProviderParameter} from "../../Styles/Layout/NavbarEG";
 import {Button, ThemeProvider} from "evergreen-ui";
 
 function Navbar() {
