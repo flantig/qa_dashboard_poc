@@ -1,5 +1,11 @@
-.App-header {
-  background-color: #282c34;
+.light {
+  background-color: White;
+  height: 100vh;
+  min-height : 100vh;
+}
+
+.dark {
+  background-color: #333333;
   height: 100vh;
   min-height : 100vh;
 }

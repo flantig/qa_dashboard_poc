@@ -1,19 +1,22 @@
 import {Link} from "react-router-dom";
-import React from "react";
-import "../../Styles/Routing/Navbar.css"
-import {ThemeProviderParameter} from "../../Styles/Routing/NavbarEG";
+import React, {useContext} from "react";
+import "../../Styles/Layout/Navbar.css"
+import {ThemeProviderParameter} from "../../Styles/Layout/NavbarEG";
 import {Button, ThemeProvider} from "evergreen-ui";
+import {MyThemeContext} from "../../Services/ThemeContext";
 
 function Navbar() {
+    const {theme, setTheme} = useContext(MyThemeContext);
+
     return (
 
         <div className={"Navbar-header"}>
             <ThemeProvider value={ThemeProviderParameter}>
                 <Link to="/">
-                    <Button className="nav-button" id="home-button">Home</Button>
+                    <Button appearance={theme} id="home-button">Home</Button>
                 </Link>
                 <Link to="/test1">
-                    <Button className="nav-button" id="samplers-button">Test 1</Button>
+                    <Button appearance={theme} id="samplers-button">Test 1</Button>
                 </Link>
             </ThemeProvider>
         </div>
