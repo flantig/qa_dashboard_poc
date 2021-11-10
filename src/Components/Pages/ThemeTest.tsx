@@ -1,9 +1,9 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import {Button, Pane, Switch, ThemeProvider, Heading} from "evergreen-ui";
-import {ThemeProviderParameter} from "../../Styles/Pages/Test1EG";
+import {ThemeProviderParameter} from "../../Styles/Pages/ThemeTest";
 import {MyThemeContext} from "../../Services/ThemeContext";
 
-function Test1() {
+export default function ThemeTest() {
     const {theme, setTheme} = useContext(MyThemeContext);
     const [checked, setChecked] = React.useState(true)
 
@@ -18,13 +18,22 @@ function Test1() {
     }
 
     return (
-        <React.Fragment>
+        <Pane
+            display="flex"
+            alignItems="center"
+            justifyContent="center">
             <Switch checked={checked} onChange={switchHandler}/>
             <ThemeProvider value={ThemeProviderParameter}>
-                <Pane clearfix>
+                <Pane
+                    clearfix
+                    width={500}
+                    height={500}
+                    display="flex"
+                    justifyContent="flex-start"
+                    backgroundColor="green"
+                    flexDirection="row">
                     <Pane
                         elevation={0}
-                        float="left"
                         backgroundColor="white"
                         width={200}
                         height={120}
@@ -39,7 +48,8 @@ function Test1() {
                     </Pane>
                     <Pane
                         elevation={1}
-                        float="left"
+
+                        backgroundColor="white"
                         appearance={theme}
                         width={200}
                         height={120}
@@ -49,14 +59,15 @@ function Test1() {
                         alignItems="center"
                         flexDirection="column"
                     >
-                        <Heading>Elevation 1 Test</Heading>
+                        <Heading>Elevation 1 </Heading>
                         <Button appearance={theme}>{theme}</Button>
                     </Pane>
+
                 </Pane>
+
             </ThemeProvider>
-        </React.Fragment>
+        </Pane>
     )
 
 }
-
-export default Test1;
+//test

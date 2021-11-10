@@ -1,12 +1,16 @@
 import {Route, Switch} from "react-router-dom";
-import Test1 from "../Pages/Test1";
+import ThemeTest from "../Pages/ThemeTest";
+import GridTest from "../Pages/GridTest";
 import Doggo from "../Pages/Doggo";
 
 function Routing(){
     return(
         <Switch>
-            <Route path="/test1">
-                <Test1/>
+            <Route path="/gridtest">
+                <GridTest/>
+            </Route>
+            <Route path="/themetest">
+                <ThemeTest/>
             </Route>
             <Route path="/">
                 <Doggo/>

@@ -15,8 +15,11 @@ function Navbar() {
                 <Link to="/">
                     <Button appearance={theme} id="home-button">Home</Button>
                 </Link>
-                <Link to="/test1">
-                    <Button appearance={theme} id="samplers-button">Test 1</Button>
+                <Link to="/themetest">
+                    <Button appearance={theme} id="theme-test">Theme Test</Button>
+                </Link>
+                <Link to="/gridtest">
+                    <Button appearance={theme} id="grid-test">Grid Test</Button>
                 </Link>
             </ThemeProvider>
         </div>
