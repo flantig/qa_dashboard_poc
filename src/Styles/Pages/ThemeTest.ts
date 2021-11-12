@@ -109,8 +109,11 @@ export const ThemeProviderParameter = {
             "xlarge": "24px"
         },
         "breakpoints": {
+            "xsmall": {
+                "value": 300,
+            },
             "small": {
-                "value": 768,
+                "value": 400,
                 "borderSize": {
                     "xsmall": "1px",
                     "small": "2px",
@@ -139,7 +142,10 @@ export const ThemeProviderParameter = {
                 }
             },
             "medium": {
-                "value": 1536
+                "value": 900
+            },
+            "middle": {
+                "value": 3000,
             },
             "large": {}
         },
