@@ -11,7 +11,7 @@ import {deepMerge} from "grommet/utils";
 function App() {
     const [theme, setTheme] = useState(() => {
         const localData = localStorage.getItem('theme')
-        return localData ? JSON.parse(localData) : true
+        return localData ? JSON.parse(localData) : false
     });
     const value = useMemo(() => ({theme, setTheme}), [theme]);
     const themeGrommet = deepMerge(grommet, ThemeProviderParameter)
@@ -24,7 +24,6 @@ function App() {
         <MyThemeContext.Provider value={value}>
             <Grommet full background={"background-back"} theme={themeGrommet} themeMode={theme ? 'light' : 'dark'}>
                 <Router>
-
                         <Navbar/>
                         <Routing/>
                 </Router>

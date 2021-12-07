@@ -13,6 +13,8 @@ export class Service {
             .then(json => json)
     }
 
+    //ToDo: Implement status code check
+
     // async POST(params?: QueryParams): Promise<any> {
     //     const response = await fetch(this.endpoint!, {method: 'POST', body: ((params) ? params.toJson() : "")});
     //     return await response.json();
