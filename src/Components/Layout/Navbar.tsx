@@ -2,10 +2,14 @@ import {Link} from "react-router-dom";
 import React, {useContext} from "react";
 import "../../Styles/Layout/Navbar.css"
 import {ThemeProviderParameter} from "../../Styles/Layout/NavbarEG";
-import {Button, Grid, Box, ResponsiveContext} from "grommet";
+import {Button, Grid, Box, ResponsiveContext, Header, Nav} from "grommet";
 import {MyThemeContext} from "../../Services/ThemeContext";
-import {Actions, Moon} from "grommet-icons";
+import {Actions, Moon, Shield} from "grommet-icons";
 
+const buttonStyle = {
+    borderRadius: "5px",
+    paddingTop: "10px"
+}
 
 function Navbar() {
 
@@ -20,21 +24,16 @@ function Navbar() {
         }
     }
 
-
     return (
-
-            <Grid columns={["small","large"]} rows={["xsmall"]} width="100%" areas={[{"name":"left","start":[0,0],"end":[0,0]},{"name":"right","start":[1,0],"end":[1,0]}]} justifyContent="center" gap="xlarge">
-                <Box align="center" justify="center" border={{"color":"accent-1","size":"medium","style":"dashed"}} gridArea="left" direction="row">
-                    <Button href={"/"} label="Dog" primary style={{"padding": "10% 20% 10% 20%", "borderRadius":"10px", "margin": "1%", fontSize:"200%"}}/>
-                </Box>
-                <Box align="center" justify="end" border={{"color":"accent-2","size":"medium","style":"dashed"}} gridArea="right" direction="row" pad="medium">
-                    <Button onClick={switchHandler} icon={theme? <Actions color={"yellow"}/>: <Moon color={"white"}/>} />
-                    <Button href={"/themetest"} label="ThemeTest" secondary style={{"padding": "1%", "borderRadius":"10px", "margin": "1%"}} />
-                    <Button href={"/gridtest"} label="GridTest" secondary style={{"padding": "1%", "borderRadius":"10px", "margin": "1%"}} />
-                    <Button href={"/singledog"} label="SingleDog" secondary style={{"padding": "1%", "borderRadius":"10px", "margin": "1%"}} />
-                </Box>
-            </Grid>
-
+            <Header background={"background-front"} pad={"small"}>
+                <Button href ={"/"} icon={<Shield/>} hoverIndicator label={"ALBATROSS"} style={{borderRadius: "5px"}}/>
+                <Nav direction={"row"}>
+                    <Button onClick={switchHandler} icon={theme? <Actions color={"black"}/>: <Moon color={"white"}/>} />
+                    <Button href={"/"} label="Reports" secondary style={buttonStyle}/>
+                    <Button href={"/singledog"} label="Dashboard" secondary style={buttonStyle}/>
+                    <Button href={"/utilities"} label="Utilities" secondary style={buttonStyle}/>
+                </Nav>
+            </Header>
     )
 }
 
